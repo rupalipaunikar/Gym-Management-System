@@ -3,29 +3,22 @@ package com.gms.service;
 import com.gms.entity.Receptionist;
 import com.gms.repository.receptionist.ReceptionistRepository;
 import com.gms.request.AddReceptionistRequest;
+import com.gms.request.GenerateReceiptRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
  * Created by rupalip on 4/10/2017.
  */
-@Service
-public class ReceptionistService {
+public interface ReceptionistService {
 
-    @Autowired
-    private ReceptionistRepository receptionistRepository;
+    void addReceptionist(AddReceptionistRequest addReceptionistRequest);
 
-    public void addReceptionist(AddReceptionistRequest addReceptionistRequest){
-        Receptionist receptionist = new Receptionist();
-        receptionist.setGender(addReceptionistRequest.getGender());
-        receptionist.setAddress(addReceptionistRequest.getAddress());
-        receptionist.setAge(addReceptionistRequest.getAge());
-        receptionist.setName(addReceptionistRequest.getName());
-        receptionist.setSalary(addReceptionistRequest.getSalary());
-        receptionistRepository.save(receptionist);
-    }
+    Receptionist getReceptionistById(Long id);
 
-    public Receptionist getReceptionistById(Long id){
-        return receptionistRepository.findById(id);
-    }
+    void updateReceptionist(Receptionist receptionist);
+
+    void deleteReceptionist(Long id);
+
+    void generateReceipt(GenerateReceiptRequest generateReceiptRequest);
 }

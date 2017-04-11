@@ -1,4 +1,4 @@
-package com.gms.repository.trainer.membershipplan;
+package com.gms.repository.membershipplan;
 
 import com.gms.entity.MembershipPlan;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
  * Created by rupalip on 4/10/2017.
  */
 @Repository
-public interface MembershipPlanRespository extends JpaRepository<MembershipPlan, Long>{
+public interface MembershipPlanRepository extends JpaRepository<MembershipPlan, Integer>{
 
-    MembershipPlan findById(Long id);
+    MembershipPlan findById(Integer id);
 }

@@ -1,6 +1,7 @@
 package com.gms.controller;
 
 import com.gms.entity.Admin;
+import com.gms.entity.Receptionist;
 import com.gms.repository.admin.AdminRepository;
 import com.gms.request.AddAdminRequest;
 import com.gms.service.AdminService;
@@ -28,11 +29,15 @@ public class AdminController {
         adminService.addAdmin(addAdminRequest);
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "admin/delete/{id}")
+    @RequestMapping(method = RequestMethod.DELETE, value = "admin/{id}")
     public void deleteAdmin(@PathVariable Long id){
         adminService.deleteAdmin(id);
     }
 
+    @RequestMapping(method = RequestMethod.PUT, value = "admin/update")
+    public void updateAdmin(@RequestBody Admin admin){
+        adminService.updateAdmin(admin);
+    }
     @RequestMapping("admin/{id}")
     public Admin getAdminById(@PathVariable Long id){
         return adminService.getAdminById(id);

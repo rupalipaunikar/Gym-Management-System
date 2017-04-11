@@ -1,5 +1,7 @@
 package com.gms.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -29,6 +31,7 @@ public class BodyMeasurement {
     @ManyToOne
     private Member member;
 
+    @JsonIgnore
     public Member getMember() {
         return member;
     }

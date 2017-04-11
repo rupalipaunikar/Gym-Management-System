@@ -22,6 +22,11 @@ public class GymEquipmentController {
         return gymEquipmentService.getAllGymEquipments();
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/gymEquipments/admin/{id}")
+    public List<GymEquipment> getAllGymEquipmentsByAdmin(@PathVariable long id){
+        return gymEquipmentService.getAllGymEquipmentsByAdmin(id);
+    }
+
     @RequestMapping(method = RequestMethod.POST, value = "gymEquipment/add")
     public void addGymEquipment(@RequestBody AddGymEquipmentRequest addGymEquipmentRequest){
         gymEquipmentService.addGymEquipment(addGymEquipmentRequest);
@@ -30,6 +35,11 @@ public class GymEquipmentController {
     @RequestMapping(method = RequestMethod.DELETE, value = "gymEquipment/delete/{id}")
     public void deleteGymEquipment(@PathVariable Integer id){
         gymEquipmentService.deleteGymEquipment(id);
+    }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "gymEquipment/update")
+    public void updateGymEquipment(@RequestBody GymEquipment gymEquipment){
+        gymEquipmentService.updateGymEquipment(gymEquipment);
     }
 
     @RequestMapping("gymEquipment/{id}")

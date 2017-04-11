@@ -13,37 +13,18 @@ import java.util.List;
 /**
  * Created by rupalip on 4/10/2017.
  */
-@Service
-public class GymEquipmentService {
 
-    @Autowired
-    GymEquipmentRepository gymEquipmentRepository;
+public interface GymEquipmentService {
 
-    @Autowired
-    AdminRepository adminRepository;
+    List<GymEquipment> getAllGymEquipments();
 
-    public List<GymEquipment> getAllGymEquipments(){
-        return gymEquipmentRepository.findAll();
-    }
+    List<GymEquipment> getAllGymEquipmentsByAdmin(long id);
 
-    public void addGymEquipment(AddGymEquipmentRequest addGymEquipmentRequest){
-        GymEquipment gymEquipment = new GymEquipment();
-        gymEquipment.setName(addGymEquipmentRequest.getName());
-        gymEquipment.setCategory(addGymEquipmentRequest.getCategory());
-        gymEquipment.setDescription(addGymEquipmentRequest.getDescription());
-        gymEquipment.setQuantity(addGymEquipmentRequest.getQuantity());
+    void addGymEquipment(AddGymEquipmentRequest addGymEquipmentRequest);
 
-        Admin admin = adminRepository.findOne(addGymEquipmentRequest.getAdminId());
-        gymEquipment.setAdmin(admin);
+    void deleteGymEquipment(int id);
 
-        gymEquipmentRepository.save(gymEquipment);
-    }
+    void updateGymEquipment(GymEquipment gymEquipment);
 
-    public void deleteGymEquipment(int id){
-        gymEquipmentRepository.delete(id);
-    }
-
-    public GymEquipment getGymEquipmentById(int id){
-        return gymEquipmentRepository.findById(id);
-    }
+    GymEquipment getGymEquipmentById(int id);
 }

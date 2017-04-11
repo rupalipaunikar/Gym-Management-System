@@ -11,31 +11,15 @@ import java.util.List;
 /**
  * Created by rupalip on 4/10/2017.
  */
-@Service
-public class AdminService {
+public interface AdminService {
 
-    @Autowired
-    AdminRepository adminRepository;
+    List<Admin> getAllAdmins();
 
-    public List<Admin> getAllAdmins(){
-        return adminRepository.findAll();
-    }
+    void addAdmin(AddAdminRequest addAdminRequest);
 
-    public void addAdmin(AddAdminRequest addAdminRequest){
-        Admin admin = new Admin();
-        admin.setName(addAdminRequest.getName());
-        admin.setAddress(addAdminRequest.getAddress());
-        admin.setAge(addAdminRequest.getAge());
-        admin.setGender(addAdminRequest.getGender());
+    void deleteAdmin(long id);
 
-        adminRepository.save(admin);
-    }
+    void updateAdmin(Admin admin);
 
-    public void deleteAdmin(long id){
-        adminRepository.delete(id);
-    }
-
-    public Admin getAdminById(Long id){
-        return adminRepository.findById(id);
-    }
+    Admin getAdminById(Long id);
 }

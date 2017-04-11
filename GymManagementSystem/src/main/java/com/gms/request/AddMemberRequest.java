@@ -13,6 +13,15 @@ public class AddMemberRequest {
     private String address;
     private String contactNo;
     private Date doj;
+    private int planId;
+
+    public int getPlanId() {
+        return planId;
+    }
+
+    public void setPlanId(int planId) {
+        this.planId = planId;
+    }
 
     public String getName() {
         return name;

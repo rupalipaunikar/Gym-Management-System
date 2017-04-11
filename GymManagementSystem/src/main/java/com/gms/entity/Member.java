@@ -1,5 +1,7 @@
 package com.gms.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -35,6 +37,7 @@ public class Member {
     @ManyToOne
     private Trainer trainer;
 
+    @JsonIgnore
     public Trainer getTrainer() {
         return trainer;
     }
@@ -51,6 +54,7 @@ public class Member {
         this.bodyMeasurements = bodyMeasurements;
     }
 
+    @JsonIgnore
     public MembershipPlan getMembershipPlan() {
         return membershipPlan;
     }

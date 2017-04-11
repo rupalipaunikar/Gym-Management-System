@@ -12,15 +12,4 @@ import java.util.List;
 @Entity
 @Table(name = "admin")
 public class Admin extends Employee {
-
-    @OneToMany(mappedBy = "admin")
-    private List<GymEquipment> gymEquipments = new ArrayList<>(0);
-
-    public List<GymEquipment> getGymEquipments() {
-        return gymEquipments;
-    }
-
-    public void setGymEquipments(List<GymEquipment> gymEquipments) {
-        this.gymEquipments = gymEquipments;
-    }
 }

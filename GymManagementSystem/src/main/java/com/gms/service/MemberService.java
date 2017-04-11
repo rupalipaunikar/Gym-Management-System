@@ -1,42 +1,27 @@
 package com.gms.service;
 
 import com.gms.entity.Member;
-import com.gms.repository.member.MemberRepository;
 import com.gms.request.AddMemberRequest;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.gms.request.AssignTrainerRequest;
 
 import java.util.List;
 
 /**
  * Created by rupalip on 4/10/2017.
  */
-@Service
-public class MemberService {
+public interface MemberService {
 
-    @Autowired
-    MemberRepository memberRepository;
+    List<Member> getAllMembers();
 
-    public List<Member> getAllMembers(){
-        return memberRepository.findAll();
-    }
+    void addMember(AddMemberRequest addMemberRequest);
 
-    public void addMember(AddMemberRequest addMemberRequest){
-        Member member = new Member();
-        member.setGender(addMemberRequest.getGender());
-        member.setAge(addMemberRequest.getAge());
-        member.setAddress(addMemberRequest.getAddress());
-        member.setName(addMemberRequest.getName());
-        member.setContactNo(addMemberRequest.getContactNo());
-        member.setDoj(addMemberRequest.getDoj());
-        memberRepository.save(member);
-    }
+    void updateMember(Member member);
 
-    public void deleteMember(long id){
-        memberRepository.delete(id);
-    }
+    void deleteMember(long id);
 
-    public Member getMemberById(Long id){
-        return memberRepository.findById(id);
-    }
+    Member getMemberById(long id);
+
+    void assignTrainerToMember(AssignTrainerRequest assignTrainerRequest);
+
+    void unassignTrainer(long memberId);
 }

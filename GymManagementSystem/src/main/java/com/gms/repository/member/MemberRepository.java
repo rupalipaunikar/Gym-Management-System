@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * Created by rupalip on 4/10/2017.
  */
-public interface MemberRepository extends JpaRepository<Member, Long>{
+public interface MemberRepository extends JpaRepository<Member, Long>, MemberRepositoryCustom{
 
-    Member findById(Long id);
 }

@@ -2,6 +2,7 @@ package com.gms.controller;
 
 import com.gms.entity.Member;
 import com.gms.request.AddMemberRequest;
+import com.gms.request.AssignTrainerRequest;
 import com.gms.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -27,13 +28,30 @@ public class MemberController {
         memberService.addMember(addMemberRequest);
     }
 
+    @RequestMapping(method = RequestMethod.PUT, value = "member/update")
+    public void updateMember(@RequestBody Member member){
+        memberService.updateMember(member);
+    }
+
     @RequestMapping(method = RequestMethod.DELETE, value = "member/delete/{id}")
-    public void deleteMember(@PathVariable Long id){
+    public void deleteMember(@PathVariable long id){
         memberService.deleteMember(id);
     }
 
     @RequestMapping("member/{id}")
-    public Member getMemberById(@PathVariable Long id){
+    public Member getMemberById(@PathVariable long id){
         return memberService.getMemberById(id);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "member/assignTrainer")
+    public String assignTrainer(@RequestBody AssignTrainerRequest assignTrainerRequest){
+        memberService.assignTrainerToMember(assignTrainerRequest);
+        return "Assigned trainer successfully";
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "member/unassignTrainer/{memberId}")
+    public String unassignTrainer(@PathVariable long memberId){
+        memberService.unassignTrainer(memberId);
+        return "Trainer unassigned successfully";
     }
 }

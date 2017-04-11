@@ -1,6 +1,9 @@
 package com.gms.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by rupalip on 4/7/2017.
@@ -18,10 +21,10 @@ public class Receipt {
     private int amountPaid;
 
     @Column(name = "date_of_purchase")
-    private int purchaseDate;
+    private Date purchaseDate;
 
     @Column(name = "date_of_creation")
-    private int creationDate;
+    private Date creationDate;
 
     @OneToOne
     private Member member;
@@ -29,6 +32,7 @@ public class Receipt {
     @ManyToOne
     private Receptionist receptionist;
 
+    @JsonIgnore
     public Receptionist getReceptionist() {
         return receptionist;
     }
@@ -61,19 +65,19 @@ public class Receipt {
         this.amountPaid = amountPaid;
     }
 
-    public int getPurchaseDate() {
+    public Date getPurchaseDate() {
         return purchaseDate;
     }
 
-    public void setPurchaseDate(int purchaseDate) {
+    public void setPurchaseDate(Date purchaseDate) {
         this.purchaseDate = purchaseDate;
     }
 
-    public int getCreationDate() {
+    public Date getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(int creationDate) {
+    public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
     }
 }

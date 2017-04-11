@@ -9,22 +9,10 @@ import org.springframework.stereotype.Service;
 /**
  * Created by rupalip on 4/10/2017.
  */
-@Service
-public class BodyMeasurementService {
 
-    @Autowired
-    private BodyMeasurementRepository bodyMeasurementRepository;
+public interface BodyMeasurementService {
 
-    public void addBodyMeasurement(BodyMeasurementRequest bodyMeasurementRequest){
-        BodyMeasurement bodyMeasurement = new BodyMeasurement();
-        bodyMeasurement.setBicepsInCms(bodyMeasurementRequest.getBicepsInCms());
-        bodyMeasurement.setDateOfMeasurement(bodyMeasurementRequest.getDateOfMeasurement());
-        bodyMeasurement.setHeightInCms(bodyMeasurementRequest.getHeightInCms());
-        bodyMeasurement.setWeightInKgs(bodyMeasurementRequest.getWeightInKgs());
-        bodyMeasurementRepository.save(bodyMeasurement);
-    }
+    void addBodyMeasurement(BodyMeasurementRequest bodyMeasurementRequest);
 
-    public BodyMeasurement getBodyMeasurementById(Integer id){
-        return bodyMeasurementRepository.findById(id);
-    }
+    BodyMeasurement getBodyMeasurementById(Integer id);
 }

@@ -11,6 +11,15 @@ public class BodyMeasurementRequest {
     private int weightInKgs;
     private int bicepsInCms;
     private Date dateOfMeasurement;
+    private long memberId;
+
+    public long getMemberId() {
+        return memberId;
+    }
+
+    public void setMemberId(long memberId) {
+        this.memberId = memberId;
+    }
 
     public int getHeightInCms() {
         return heightInCms;

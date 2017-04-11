@@ -1,5 +1,7 @@
 package com.gms.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 /**
@@ -19,6 +21,7 @@ public class GymEquipment {
     @ManyToOne
     private Admin admin;
 
+    @JsonIgnore
     public Admin getAdmin() {
         return admin;
     }
