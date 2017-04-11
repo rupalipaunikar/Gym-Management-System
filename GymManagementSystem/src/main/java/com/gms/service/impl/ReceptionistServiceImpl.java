@@ -40,7 +40,7 @@ public class ReceptionistServiceImpl implements ReceptionistService{
 
     @Override
     public Receptionist getReceptionistById(Long id){
-        return receptionistRepository.findById(id);
+        return receptionistRepository.findOne(id);
     }
 
     @Override

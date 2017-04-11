@@ -9,6 +9,4 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface BodyMeasurementRepository extends JpaRepository<BodyMeasurement, Integer> {
-
-    BodyMeasurement findById(Integer id);
 }

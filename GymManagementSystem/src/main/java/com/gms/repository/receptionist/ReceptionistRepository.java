@@ -10,6 +10,4 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface ReceptionistRepository extends JpaRepository<Receptionist, Long> {
-
-    Receptionist findById(Long id);
 }

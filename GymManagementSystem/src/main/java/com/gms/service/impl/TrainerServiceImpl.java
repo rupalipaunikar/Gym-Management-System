@@ -34,7 +34,7 @@ public class TrainerServiceImpl implements TrainerService {
 
     @Override
     public Trainer getTrainerById(Long id){
-        return trainerRepository.findById(id);
+        return trainerRepository.findOne(id);
     }
 
     @Override

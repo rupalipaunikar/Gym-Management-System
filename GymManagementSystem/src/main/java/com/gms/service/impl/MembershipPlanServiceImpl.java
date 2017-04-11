@@ -34,6 +34,6 @@ public class MembershipPlanServiceImpl implements MembershipPlanService {
 
     @Override
     public MembershipPlan getMembershipPlanById(Integer id){
-        return membershipPlanRepository.findById(id);
+        return membershipPlanRepository.findOne(id);
     }
 }

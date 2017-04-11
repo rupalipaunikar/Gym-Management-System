@@ -46,6 +46,6 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public Admin getAdminById(Long id){
-        return adminRepository.findById(id);
+        return adminRepository.findOne(id);
     }
 }

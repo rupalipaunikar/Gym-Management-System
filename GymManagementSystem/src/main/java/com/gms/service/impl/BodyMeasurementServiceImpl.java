@@ -35,6 +35,6 @@ public class BodyMeasurementServiceImpl implements BodyMeasurementService{
     }
 
     public BodyMeasurement getBodyMeasurementById(Integer id){
-        return bodyMeasurementRepository.findById(id);
+        return bodyMeasurementRepository.findOne(id);
     }
 }

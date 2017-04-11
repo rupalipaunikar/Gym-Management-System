@@ -9,6 +9,4 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface MembershipPlanRepository extends JpaRepository<MembershipPlan, Integer>{
-
-    MembershipPlan findById(Integer id);
 }
