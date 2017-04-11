@@ -16,7 +16,16 @@ public class GymEquipment {
     private String description;
     private String category;
     private int quantity;
+    @ManyToOne
+    private Admin admin;
 
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
+    }
 
     public int getId() {
         return id;

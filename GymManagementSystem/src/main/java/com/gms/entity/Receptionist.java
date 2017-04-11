@@ -15,8 +15,8 @@ public class Receptionist extends Employee{
 
     private int salary;
 
-    @OneToMany
-    private List<Receipt> receipts = new ArrayList<>();
+    @OneToMany(mappedBy = "receptionist")
+    private List<Receipt> receipts = new ArrayList<>(0);
 
     public List<Receipt> getReceipts() {
         return receipts;

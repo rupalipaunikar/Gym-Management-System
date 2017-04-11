@@ -13,9 +13,8 @@ import java.util.List;
 @Table(name = "admin")
 public class Admin extends Employee {
 
-    @JsonIgnore
-    @OneToMany(fetch = FetchType.LAZY)
-    private List<GymEquipment> gymEquipments = new ArrayList<>();
+    @OneToMany(mappedBy = "admin")
+    private List<GymEquipment> gymEquipments = new ArrayList<>(0);
 
     public List<GymEquipment> getGymEquipments() {
         return gymEquipments;

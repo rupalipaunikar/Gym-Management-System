@@ -18,8 +18,8 @@ public class MembershipPlan {
     private String duration;
     private int amount;
 
-    @OneToMany
-    private List<Member> members = new ArrayList<>();
+    @OneToMany(mappedBy = "membershipPlan")
+    private List<Member> members = new ArrayList<>(0);
 
     public List<Member> getMembers() {
         return members;

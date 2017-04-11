@@ -24,8 +24,8 @@ public class Trainer extends Employee {
     @Column(name = "hourly_wages")
     private int hourlyWages;
 
-    @OneToMany
-    private List<Member> members = new ArrayList<>();
+    @OneToMany(mappedBy = "trainer")
+    private List<Member> members = new ArrayList<>(0);
 
     public List<Member> getMembers() {
         return members;

@@ -26,8 +26,22 @@ public class Member {
     @Column(name = "date_of_joining")
     private Date doj;
 
-    @OneToMany
-    private List<BodyMeasurement> bodyMeasurements = new ArrayList<>();
+    @ManyToOne
+    private MembershipPlan membershipPlan;
+
+    @OneToMany(mappedBy = "member")
+    private List<BodyMeasurement> bodyMeasurements = new ArrayList<>(0);
+
+    @ManyToOne
+    private Trainer trainer;
+
+    public Trainer getTrainer() {
+        return trainer;
+    }
+
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
+    }
 
     public List<BodyMeasurement> getBodyMeasurements() {
         return bodyMeasurements;
@@ -35,6 +49,14 @@ public class Member {
 
     public void setBodyMeasurements(List<BodyMeasurement> bodyMeasurements) {
         this.bodyMeasurements = bodyMeasurements;
+    }
+
+    public MembershipPlan getMembershipPlan() {
+        return membershipPlan;
+    }
+
+    public void setMembershipPlan(MembershipPlan membershipPlan) {
+        this.membershipPlan = membershipPlan;
     }
 
     public long getId() {

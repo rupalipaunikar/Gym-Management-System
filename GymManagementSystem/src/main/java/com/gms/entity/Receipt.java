@@ -26,6 +26,17 @@ public class Receipt {
     @OneToOne
     private Member member;
 
+    @ManyToOne
+    private Receptionist receptionist;
+
+    public Receptionist getReceptionist() {
+        return receptionist;
+    }
+
+    public void setReceptionist(Receptionist receptionist) {
+        this.receptionist = receptionist;
+    }
+
     public Member getMember() {
         return member;
     }

@@ -26,6 +26,17 @@ public class BodyMeasurement {
     @Column(name = "date_of_measurement")
     private Date dateOfMeasurement;
 
+    @ManyToOne
+    private Member member;
+
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
     public int getId() {
         return id;
     }
