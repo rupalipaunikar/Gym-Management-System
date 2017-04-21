@@ -38,6 +38,7 @@ public class AdminController {
     public void updateAdmin(@RequestBody Admin admin){
         adminService.updateAdmin(admin);
     }
+
     @RequestMapping("admin/{id}")
     public Admin getAdminById(@PathVariable Long id){
         return adminService.getAdminById(id);
